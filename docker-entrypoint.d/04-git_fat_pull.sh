@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /munki_repo
+cd $TARGET_DIR
 git fat pull

@@ -1,4 +1,6 @@
 FROM ubuntu:14.04.4
+ENV TARGET_DIR=/data
+ENV GIT_BRANCH=master
 
 # Install  git
 
@@ -13,9 +15,6 @@ RUN apt-get update \
 RUN mkdir /root/.ssh \
   && chmod 0600 /root/.ssh \
   && echo StrictHostKeyChecking no > /root/.ssh/config
-
-# Configure volumes
-VOLUME ["/munki_repo"]
 
 # Configure entrypoint
 COPY /docker-entrypoint.sh /
