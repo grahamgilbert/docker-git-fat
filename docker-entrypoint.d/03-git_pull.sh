@@ -7,6 +7,7 @@ if [ ! -d $LOCALREPO_VC_DIR ]
 then
     git clone --no-checkout -b ${GIT_BRANCH} ${REPOSITORY} $TARGET_DIR
     cd $TARGET_DIR
+    git fetch origin ${GIT_BRANCH}
     git fat init
 else
     cd $TARGET_DIR
