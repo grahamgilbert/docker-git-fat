@@ -1,6 +1,7 @@
 FROM ubuntu:14.04.4
 ENV TARGET_DIR=/data
 ENV GIT_BRANCH=master
+ENV MAKECATALOGS=false
 
 # Install  git
 
@@ -9,6 +10,7 @@ RUN apt-get update \
   && apt-get install -y curl git rsync \
   && curl https://raw.github.com/cyaninc/git-fat/master/git_fat/git_fat.py \
 | tee /usr/local/bin/git-fat && chmod +x /usr/local/bin/git-fat \
+  && git clone https://github.com/munki/munki.git \
   && rm -rf /var/lib/apt/lists/*
 
 # Configure .ssh directory
