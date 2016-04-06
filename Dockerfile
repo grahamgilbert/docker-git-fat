@@ -2,6 +2,7 @@ FROM ubuntu:14.04.4
 ENV TARGET_DIR=/data
 ENV GIT_BRANCH=master
 ENV MAKECATALOGS=false
+ENV PATH /usr/local/bin:$PATH
 
 # Install  git
 
