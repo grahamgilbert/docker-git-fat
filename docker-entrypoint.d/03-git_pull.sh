@@ -5,12 +5,11 @@ LOCALREPO_VC_DIR=$TARGET_DIR/.git
 
 if [ ! -d $LOCALREPO_VC_DIR ]
 then
-    git clone ${REPOSITORY} $TARGET_DIR
+    git clone --no-checkout -b ${GIT_BRANCH} ${REPOSITORY} $TARGET_DIR
     cd $TARGET_DIR
-    git checkout ${GIT_BRANCH}
+    git fat init
 else
     cd $TARGET_DIR
-    git checkout ${GIT_BRANCH}
-    git reset --hard ${GIT_BRANCH}
-    git pull ${REPOSITORY}
+    git fetch origin ${GIT_BRANCH}
+    git reset --hard
 fi
